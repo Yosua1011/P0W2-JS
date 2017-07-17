@@ -8,32 +8,32 @@ for (angka = 1; angka <= 100; angka ++)  {
 console.log("---------------------");
 
 for (angka = 1; angka <= 100; angka += 2)  {
-	for (number =1; number <= 100; number ++) {
-	    if (angka === number && angka % number === 0) {console.log(angka + " KELIPATAN " + number);
-	    } 
-	    else {
-		}
+	if (angka % 3 === 0) {
+		console.log(angka + " KELIPATAN " + 3);
+	} 
+	else {
+		console.log("");
 	}
 }
 
 console.log("---------------------");
 
 for (angka = 1; angka <= 100; angka += 5)  {
-	for (number =1; number <= 100; number ++) {
-	    if (angka === number && angka % number === 0) {console.log(angka + " KELIPATAN " + number);
-	    } 
-	    else {
-		}
+	if (angka % 6 === 0) {
+		console.log(angka + " KELIPATAN " + 6);
+	} 
+	else {
+		console.log("");
 	}
 }
 
 console.log("---------------------");
 
 for (angka = 1; angka <= 100; angka += 9)  {
-	for (number =1; number <= 100; number ++) {
-	    if (angka === number && angka % number === 0) {console.log(angka + " KELIPATAN " + number);
-	    } 
-	    else {
-		}
+	if (angka % 10 === 0) {
+		console.log(angka + " KELIPATAN " + 10);
+	} 
+	else {
+		console.log("");
 	}
 }
