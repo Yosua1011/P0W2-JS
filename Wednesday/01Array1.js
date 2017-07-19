@@ -1,31 +1,11 @@
-/**var a = 'hello world!'
+var input = 'hello, world!'
 
-function reverser(inputSentence){
-    var words = inputSentence.split(" "); // Split the sentence into words
-    var output = new Array(); // Initiate the output
-    words.forEach(function(word) { // For each word
-        output.push(word.split("").reverse().join("")); // Reverse the word and add it to the output
-    });
-    return output.join(" "); // Join output to string and return it
+function balikString(s) {
+  var o = '';
+  for (var i = s.length - 1; i >= 0; i--)
+    o += s[i];
+  return o;
 }
 
-console.log(reverser(a));**/
+console.log(balikString(input));
 
-/**
-var a = 'hello world!'
-
-function balikString(inputSentence){
-	return inputSentence.split("").reverse().join("")
-	.split(" ").reverse().join(" ").split
-}
-
-console.log(balikString(a));
-**/
-
-var a = 'hello world!'
-
-function balikString(inputSentence){
-	return inputSentence.split("").reverse().join("")
-}
-
-console.log(balikString(a));
