@@ -2,38 +2,20 @@
 var input = ["0001", "Roman Alamsyah Elsharawy", "Bandar Lampung", "21/05/1989", "Membaca"];
 
 function dataHandling2(input) {
-    input.splice(4, 1, "Pria", "SMA Internasional Metro");
-    console.log(input);   
-}
+    var x=input.splice(4, 1, "Pria", "SMA Internasional Metro");   
+    console.log(input);
 
-console.log(dataHandling2(input));
+    var monthNames = ["","Januari", "Februari", "Maret", "April", "Mei", "Juni",
+  "Juli", "Agustus", "September", "Oktober", "November", "December"];
+  	var a = input[3].split("/").map(Number)
+  	var b = a[1];
+  	console.log(monthNames[b]);
 
-// console.log nama bulan dan sorting 
-var input = ["0001", "Roman Alamsyah Elsharawy", "Bandar Lampung", "21/05/1989", "Membaca"];
-
-function dataHandling2(input) {
-    console.log(input[3].split("/").sort(function(value1, value2) { return value1 < value2 }));
-       
-}
-
-console.log(dataHandling2(input));
-
-// Split untuk join dengan tanda -
-var input = ["0001", "Roman Alamsyah Elsharawy", "Bandar Lampung", "21/05/1989", "Membaca"];
-
-function dataHandling2(input) {
+    console.log(input[3].split("/").map(Number).sort(function(value1, value2) { return value1 < value2 }));
+    
     console.log(input[3].split("/").join("-"));
-       
-}
 
-console.log(dataHandling2(input));
-
-// Slice Nama hanya menjadi 15 karakter
-var input = ["0001", "Roman Alamsyah Elsharawy", "Bandar Lampung", "21/05/1989", "Membaca"];
-
-function dataHandling2(input) {
     console.log(input[1].slice(0,14));
-       
 }
 
 console.log(dataHandling2(input));
