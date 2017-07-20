@@ -1,9 +1,9 @@
-A = 33
-B = 6
-C = `foo`
-D = `bar`
-E = true
-F = false
+var A = 33
+var B = 6
+var C = `foo`
+var D = `bar`
+var E = true
+var F = false
 
 console.log(A)
 console.log(B)
