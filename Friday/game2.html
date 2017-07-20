@@ -9,14 +9,14 @@ canvas {
 }
 </style>
 </head>
-<body onload="mulaiPermainan()">
+<body onload="startGame()">
 <script>
 
 var kotak;
 var halangan = [];
 var skor;
 
-function mulaiPermainan() {
+function startGame() {
     kotak = new component(30, 30, "red", 10, 120);
     skor = new component("30px", "Consolas", "black", 280, 40, "text");
     papanMain.start();
@@ -31,6 +31,13 @@ var papanMain = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener('keydown', function (e) {
+            papanMain.keys = (papanMain.keys || []);
+            papanMain.keys[e.keyCode] = (e.type == "keydown");
+        })
+        window.addEventListener('keyup', function (e) {
+            papanMain.keys[e.keyCode] = (e.type == "keydown");            
+        })
         },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -96,7 +103,7 @@ function updateGameArea() {
         maxHeight = 200;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
         minGap = 50;
-        maxGap = 100;
+        maxGap = 200;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
         halangan.push(new component(10, height, "green", x, 0));
         halangan.push(new component(10, x - height - gap, "green", x, height + gap));
@@ -108,6 +115,10 @@ function updateGameArea() {
     }
     skor.text="SCORE: " + papanMain.frameNo;
     skor.update();
+    if (papanMain.keys && papanMain.keys[37]) {kotak.speedX = -1; }
+    if (papanMain.keys && papanMain.keys[39]) {kotak.speedX = 1; }
+    if (papanMain.keys && papanMain.keys[38]) {kotak.speedY = -1; }
+    if (papanMain.keys && papanMain.keys[40]) {kotak.speedY = 1; }
     kotak.newPos();    
     kotak.update();
 }
@@ -138,14 +149,10 @@ function clearmove() {
     kotak.speedY = 0; 
 }
 </script>
-<div style="text-align:center;width:480px;">
-  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
-  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
-  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
-</div>
 
-<p>The score will count one point for each frame you manage to "stay alive".</p>
+<p>Time for keyboard master!</p>
+<p>Make sure this window has focus, then use the arrow keys on you keyboard to move the red square.</p>
+<p>When pressing both the left and the down arrow, the red square will move both down and to the left.</p>
 </body>
 </html>
 
