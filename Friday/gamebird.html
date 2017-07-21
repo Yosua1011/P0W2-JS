@@ -17,7 +17,7 @@ var halangan = [];
 var skor;
 
 function mulaiPermainan() {
-	kotak = new component(30, 30, "red", 10, 120);
+	kotak = new component(15, 30, "icon/ninja.png", 10, 120, "image");
 	skor = new component("30px", "Consolas", "green", 280, 40, "text");
 	papanMain.start();
 }
@@ -42,6 +42,10 @@ var papanMain = {
 
 function component(width, height, color, x, y, type) {
 	this.type = type;
+	 if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
 	this.width = width;
 	this.height = height;
 	this.speedX = 0;
@@ -50,10 +54,11 @@ function component(width, height, color, x, y, type) {
 	this.y = y;
 	this.update = function() {
 		ctx = papanMain.context;
-		if (this.type == "text") {
-			ctx.font = this.width + " " + this.height;
-			ctx.fillStyle = color;
-			ctx.fillText(this.text, this.x, this.y);
+		if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.width, this.height);
 		} else {
 			ctx.fillStyle = color;
 			ctx.fillRect(this.x, this.y, this.width, this.height);

@@ -16,7 +16,7 @@
 	* Untuk halangan yang menggantung dari atas ke bawah:
 		Jika posisi x dan y salah satu sisi ninja lebih besar dari salah satu sisi halangan 
 	* Untuk halangan yang menonjol dari bawah ke atas:
-		Jika posisi x dan y salah satu sisi ninja lebih kecil dari salah satu sisi halangan 
+		Jika salah satu sisi ninja memiliki posisi x lebih besar dan y lebih kecil dari salah satu sisi halangan 
 * Jika permainan terhenti, player dapat memilih restart untuk memulai ulang permainan atau memilih exit untuk kembali ke halaman awal
 
 ## Pseudocode untuk Keyboard Version:
@@ -37,6 +37,6 @@ Jika ninja mengenai halangan maka permainan akan berhenti seketika
 	* Untuk halangan yang menggantung dari atas ke bawah:
 		Jika posisi x dan y salah satu sisi ninja lebih besar dari salah satu sisi halangan 
 	* Untuk halangan yang menonjol dari bawah ke atas:
-		Jika posisi x dan y salah satu sisi ninja lebih kecil dari salah satu sisi halangan 
+		Jika salah satu sisi ninja memiliki posisi x lebih besar dan y lebih kecil dari salah satu sisi halangan 
 * Jika permainan terhenti, player dapat memilih restart untuk memulai ulang permainan atau memilih exit untuk kembali ke halaman awal
 
