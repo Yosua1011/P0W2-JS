@@ -17,7 +17,7 @@ var halangan = [];
 var skor;
 
 function startGame() {
-    kotak = new component(15, 30, "icon/ninja.png", 10, 120, "image");
+    kotak = new component(30, 30, "red", 10, 120);
     skor = new component("30px", "Consolas", "black", 280, 40, "text");
     papanMain.start();
 }
@@ -49,10 +49,6 @@ var papanMain = {
 
 function component(width, height, color, x, y, type) {
     this.type = type;
-     if (type == "image") {
-        this.image = new Image();
-        this.image.src = color;
-    }
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -61,11 +57,10 @@ function component(width, height, color, x, y, type) {
     this.y = y;    
     this.update = function() {
         ctx = papanMain.context;
-        if (type == "image") {
-            ctx.drawImage(this.image, 
-                this.x, 
-                this.y,
-                this.width, this.height);
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
         } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -108,7 +103,7 @@ function updateGameArea() {
         maxHeight = 200;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
         minGap = 50;
-        maxGap = 200;
+        maxGap = 100;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
         halangan.push(new component(10, height, "green", x, 0));
         halangan.push(new component(10, x - height - gap, "green", x, height + gap));
